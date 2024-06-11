@@ -39,28 +39,58 @@ async function main() {
     </li>`;
   }
 
-  let musicList = Array.from(
+  //List of songs showing in library
+  Array.from(
     document.querySelector(".songList").getElementsByTagName("li")
   ).forEach((e) => {
     e.addEventListener("click", (element) => {
       console.log(e.getElementsByTagName("p")[0].innerHTML);
       playMusic(e.getElementsByTagName("p")[0].innerHTML);
       let songName = document.querySelector(".songName");
-      songName.innerHTML =
-        `<img class="invert" src="music.svg" alt="" />
-                <p>${e.getElementsByTagName("p")[0].innerHTML}</p>`;
+      songName.innerHTML = ` <img class="invert" src="music.svg" alt="" />
+                <p>
+                ${e.getElementsByTagName("p")[0].innerHTML}
+                </p>
+              `;
     });
   });
 
-  //   audio.addEventListener("loadeddata", () => {
-  //     console.log(audio.duration, audio.currentSrc, audio.currentTime);
-  //   });
+  // event listener to play next and prev
+  play.addEventListener("click", () => {
+    if (currentSong.paused) {
+      currentSong.play();
+      play.src = "pause.svg";
+    } else {
+      currentSong.pause();
+      play.src = "musicplay.svg";
+    }
+  });
+
+  //time update event
+  currentSong.addEventListener("timeupdate", () => {
+    // console.log(currentSong.currentTime, currentSong.duration)
+    document.querySelector(".seekbar p").innerHTML = `${formatTime(
+      currentSong.currentTime
+    )}/${formatTime(currentSong.duration)}`;
+
+    
+
+    document.querySelector(".duration").style.left =
+      (currentSong.currentTime / currentSong.duration) * 100 + "%";
+    document.querySelector(".backgroundColor").style.width =
+      (currentSong.currentTime / currentSong.duration) * 100 + "%";
+
+      document.querySelector(".seekbar").addEventListener("click", (e) => {
+        document.querySelector(".duration").style.left =
+        ((currentSong.currentTime / currentSong.duration) * 100) + e.clientX + "%";
+      });
+  });
 }
 
 // function volumeSlider() {
-//   let volume = document.getElementById("volume-slider");
+//   let volume = document.getElementById("volume-Slider");
 //   volume.addEventListener("change", function (e) {
-//     audio.volume = e.currentTarget.value / 100;
+//     console.log(audio.volume = e.currentTarget.value / 100);
 //   });
 // }
 
@@ -68,5 +98,20 @@ const playMusic = (track) => {
   // let audio = new Audio("/Spotify Clone/Songs/" + track);
   currentSong.src = "/Songs/" + track;
   currentSong.play();
+  play.src = "pause.svg";
 };
+
+function formatTime(duration) {
+  if (isNaN(duration) || duration < 0) {
+    return "Invalid Input";
+  }
+  const minutes = Math.floor(duration / 60);
+  const remaningSeconds = Math.floor(duration % 60);
+
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(remaningSeconds).padStart(2, "0");
+
+  return `${formattedMinutes}:${formattedSeconds}`;
+}
+
 main();

@@ -60,7 +60,8 @@
           </div>
         </div>
       </div>
-      <div class="rightContainer margin">
+
+      <div class="rightContainer">
         <div class="rightContainerHeader">
           <div class="pagePart">
             <a href=""><img class="invert" src="left.svg" alt="" /></a>
@@ -78,7 +79,9 @@
               <h1>Spotify Playlist</h1>
               <a class="text" href="">Show All</a>
             </div>
+            <div class="playlistContainer">
 
+            
             <div class="cardContainer">
               <div class="card padding">
                 <div class="cardImage">
@@ -96,8 +99,94 @@
               </div>
 
             </div>
-          </div>
+            <div class="cardContainer">
+              <div class="card padding">
+                <div class="cardImage">
+                  
+                  <img
+                    src="https://i.scdn.co/image/ab67706f0000000255be59b7be2929112e7ac927"
+                    alt="img"
+                  />
+                </div>
+                <div class="cardContent">
+                  <h1>Lofi Beats</h1>
+                  <p>Chill Beats, Lofi Vibes, new tracks every week</p>
+                </div>
+                  <img class="cardPlayButton" src="playbuttoon.svg" alt="" />
+              </div>
 
+            </div>
+            <div class="cardContainer">
+              <div class="card padding">
+                <div class="cardImage">
+                  
+                  <img
+                    src="https://i.scdn.co/image/ab67706f0000000255be59b7be2929112e7ac927"
+                    alt="img"
+                  />
+                </div>
+                <div class="cardContent">
+                  <h1>Lofi Beats</h1>
+                  <p>Chill Beats, Lofi Vibes, new tracks every week</p>
+                </div>
+                  <img class="cardPlayButton" src="playbuttoon.svg" alt="" />
+              </div>
+
+            </div>
+            <div class="cardContainer">
+              <div class="card padding">
+                <div class="cardImage">
+                  
+                  <img
+                    src="https://i.scdn.co/image/ab67706f0000000255be59b7be2929112e7ac927"
+                    alt="img"
+                  />
+                </div>
+                <div class="cardContent">
+                  <h1>Lofi Beats</h1>
+                  <p>Chill Beats, Lofi Vibes, new tracks every week</p>
+                </div>
+                  <img class="cardPlayButton" src="playbuttoon.svg" alt="" />
+              </div>
+
+            </div>
+            <div class="cardContainer">
+              <div class="card padding">
+                <div class="cardImage">
+                  
+                  <img
+                    src="https://i.scdn.co/image/ab67706f0000000255be59b7be2929112e7ac927"
+                    alt="img"
+                  />
+                </div>
+                <div class="cardContent">
+                  <h1>Lofi Beats</h1>
+                  <p>Chill Beats, Lofi Vibes, new tracks every week</p>
+                </div>
+                  <img class="cardPlayButton" src="playbuttoon.svg" alt="" />
+              </div>
+
+            </div>
+            <div class="cardContainer">
+              <div class="card padding">
+                <div class="cardImage">
+                  
+                  <img
+                    src="https://i.scdn.co/image/ab67706f0000000255be59b7be2929112e7ac927"
+                    alt="img"
+                  />
+                </div>
+                <div class="cardContent">
+                  <h1>Lofi Beats</h1>
+                  <p>Chill Beats, Lofi Vibes, new tracks every week</p>
+                </div>
+                  <img class="cardPlayButton" src="playbuttoon.svg" alt="" />
+              </div>
+
+            </div>
+        </div>
+
+          </div>
           <div class="songPlayer">
             <div class="player">
               <div class="songName">
@@ -106,22 +195,34 @@
               </div>
               <div class="playControls">
                 <div class="controls">
-                  <button><img src="previous.svg" alt="" /></button>
-                  <button style="background-color: aliceblue">
-                    <img src="musicplay.svg" alt="" />
+                  <button class="songPreviousBotton">
+                    <img src="previous.svg" alt="" />
                   </button>
-                  <button><img src="next.svg" alt="" /></button>
+                  <button>
+                    <img id="play" src="musicplay.svg" alt="" />
+                  </button>
+                  <button class="songNextBotton"><img src="next.svg" alt="" /></button>
                 </div>
                 <div class="seekbar">
-                  <div class="duration"></div>
+                  <div class="backgroundColor"></div>
+                  <div draggable="true" ondrag="" class="duration"></div>
+                  <p style="font-size: 10px;"></p>
                 </div>
               </div>
               <div class="volumeSlider">
-                <input type="range" id="volumeSlider" />
+                <input type="range" min="0" max="100" value="50" id="volume-Slider" />
+                <p style="font-size: 10px;"></p>
               </div>
+
+              <!-- <div class="volume-slider-container">
+                <input type="range" min="0" max="100" value="50" class="slider" id="volumeSlider">
+                <p>Volume: <span id="volumeValue">50</span>%</p>
+                <audio id="audioElement" src="your-audio-file.mp3" controls></audio>
+            </div> -->
             </div>
           </div>
         </div>
+        
       </div>
     </div>
     <script src="script.js"></script>
