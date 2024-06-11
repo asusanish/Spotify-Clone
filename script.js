@@ -1,7 +1,7 @@
 let currentSong = new Audio();
 
 async function getSongs() {
-  let songFetch = await fetch("http://127.0.0.1:3000/Songs/");
+  let songFetch = await fetch("https://github.com/asusanish/Spotify-Clone/tree/main/Songs");
   let response = await songFetch.text();
   let div = document.createElement("div");
   div.innerHTML = response;
