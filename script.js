@@ -1,7 +1,7 @@
 let currentSong = new Audio();
 
 async function getSongs() {
-  let songFetch = await fetch("https://github.com/asusanish/Spotify-Clone/tree/main/Songs");
+  let songFetch = await fetch("http://127.0.0.1:3000/Songs/");
   let response = await songFetch.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -80,11 +80,14 @@ async function main() {
     document.querySelector(".backgroundColor").style.width =
       (currentSong.currentTime / currentSong.duration) * 100 + "%";
 
-      document.querySelector(".seekbar").addEventListener("click", (e) => {
-        document.querySelector(".duration").style.left =
-        ((currentSong.currentTime / currentSong.duration) * 100) + e.clientX + "%";
       });
-  });
+        document.querySelector(".seekbar").addEventListener("click", (e) => {
+
+          let currentSongDuration = (e.offsetX / e.target.getBoundingClientRect().width) * 100
+          document.querySelector(".duration").style.left = currentSongDuration + "%";
+          document.querySelector(".backgroundColor").style.width = (e.offsetX / e.target.getBoundingClientRect().width) * 100 + "%";
+          currentSong.currentTime = (currentSong.duration * currentSongDuration) / 100;
+        });
 }
 
 // function volumeSlider() {

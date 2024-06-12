@@ -9,8 +9,9 @@
   </head>
   <body>
     <div class="mainContainer">
+      <div id="contentContainer">
       <div class="leftContainer">
-        <div class="home margin">
+        <div class="home">
           <a href="index.html"
             ><img
               style="margin: 10px"
@@ -33,11 +34,14 @@
           </ul>
         </div>
 
-        <div class="playlist margin">
+        <div class="playlist">
           <div class="playlistHeader">
-            <h1>
-              <img class="invert" src="playlist.svg" alt="" />Your Library
-            </h1>
+            <div class="libraryHeader">
+              <img class="invert" src="playlist.svg" alt="" />
+                <h1>
+                  Your Library
+                </h1>
+            </div>
             <a href=""><img class="invert" src="plus.svg" alt="" /></a>
           </div>
 
@@ -190,8 +194,6 @@
           <div class="songPlayer">
             <div class="player">
               <div class="songName">
-                <!-- <img class="invert" src="music.svg" alt="" />
-                <p>Song Name</p> -->
               </div>
               <div class="playControls">
                 <div class="controls">
@@ -213,16 +215,10 @@
                 <input type="range" min="0" max="100" value="50" id="volume-Slider" />
                 <p style="font-size: 10px;"></p>
               </div>
-
-              <!-- <div class="volume-slider-container">
-                <input type="range" min="0" max="100" value="50" class="slider" id="volumeSlider">
-                <p>Volume: <span id="volumeValue">50</span>%</p>
-                <audio id="audioElement" src="your-audio-file.mp3" controls></audio>
-            </div> -->
             </div>
           </div>
         </div>
-        
+      </div>
       </div>
     </div>
     <script src="script.js"></script>

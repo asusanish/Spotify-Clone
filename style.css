@@ -9,8 +9,8 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 98vw;
+    height: 98vh;
     background-color: black;
     color: white;
 }
@@ -28,21 +28,30 @@ body {
 
 .mainContainer {
     width: 100%;
-    height: 100%;
+    height: 98%;
+    padding: 10px;
+}
+
+#contentContainer{
+    width: inherit;
+    height: inherit;
     display: flex;
     justify-content: space-between;
 }
 
+
 .leftContainer {
     width: 20%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .mainContainer .leftContainer .home {
-    width: 20vw;
-    height: 15vh;
+    width: 100%;
+    min-height: 20%;
     border-radius: 20px;
-    padding: 20px;
     background-color: rgb(27, 23, 23);
     overflow: hidden;
 }
@@ -74,11 +83,9 @@ body {
 }
 
 .playlist {
-    margin-left: 10px;
     width: 100%;
-    height: 72vh;
+    max-height: 78%;
     background-color: rgb(27, 23, 23);
-    padding: 20px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
@@ -94,6 +101,12 @@ h1 {
     cursor: pointer;
 }
 
+.libraryHeader{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .playlist .playlistHeader,
 h1:hover {
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 1.5s;
@@ -102,7 +115,7 @@ h1:hover {
 
 .playlist .playlistHeader,
 h1>img {
-    margin-right: 10px;
+    margin: 10px 10px 0 10px;
 }
 
 .playlistHeader img {
@@ -110,13 +123,12 @@ h1>img {
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
     padding-bottom: 20px;
     font-size: 12px;
+    margin-left: 10px;
 }
 
-.footer a {
+.footer a{
     margin: 5px;
 }
 
@@ -131,10 +143,8 @@ h1>img {
 
 
 .rightContainer {
-    width: 76vw;
-    height: 97%;
-    /* background-color: rgb(27, 23, 23); */
-    margin: 10px 15px 0px 15px;
+    width: 78%;
+    height: 100%;
 }
 
 .rightContainerHeader {
@@ -301,7 +311,7 @@ h1>img {
 
 .musicList{
     width: 90%;
-    height: 78%;
+    height: 70%;
     margin: 20px;
     overflow-y: scroll;
 }
@@ -345,6 +355,7 @@ h1>img {
     border-top: 1px solid;
     position: absolute;
     bottom: 0px;
+    overflow: hidden;
 }
 
 .player{
@@ -366,6 +377,10 @@ h1>img {
     width: 20%;
     height: 100%;
     object-fit: contain;
+    
+}
+.songName p{
+    font-size: 10px;
     
 }
 
@@ -411,6 +426,7 @@ h1>img {
     width: 0%;
     height: 100%;
     background-color: #f3e4e4;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
 }
 
 .duration{
@@ -420,9 +436,65 @@ h1>img {
     height: 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.788);
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
 }
 .seekbar > p{
     position: absolute;
     right: -71px;
     bottom: -5px;
+}
+
+
+@media (max-width: 1300px) {
+    .leftContainer{
+        position: absolute;
+
+    }
+
+    .rightContainer{
+        width: 100%;
+    }
+
+    @media (max-width: 606px) {
+        .songPlayer{
+            height: 100%;
+        }
+
+        .player{
+            display: block;
+        }
+
+        .songName{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .songName p{
+            text-align: center;
+        }
+
+        .playControls{
+            min-height: 30%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+        }
+
+        .seekbar{
+            width: 100%;
+        }
+
+        .seekbar p{
+            display: none;
+        }
+
+        .volumeSlider{
+            display: none;
+        }
+    }
 }
